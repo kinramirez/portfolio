@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import Header from "./assets/components/Header";
-import About from "./assets/components/About";
-import Projects from "./assets/components/Projects";
-import Skills from "./assets/components/Skills";
-import Hero from "./assets/components/Hero";
-import Contact from "./assets/components/Contact";
-import Footer from "./assets/components/Footer";
+import Header from "./sections/Header";
+import About from "./sections/About";
+import Projects from "./assets/components/Projects/index";
+import Skills from "./sections/Skills";
+import Hero from "./sections/Hero";
+import Contact from "./sections/Contact";
+import Footer from "./sections/Footer";
 
 // ── Tokens ──────────────────────────────────────────────────────────────────
 const C = {

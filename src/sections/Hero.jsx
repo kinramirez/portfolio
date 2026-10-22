@@ -1,25 +1,13 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import InteractiveGrid from "../assets/components/InteractiveGrid";
 
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-bg">
 
-      {/* Grid bg */}
-      <div
-        className="absolute inset-0 opacity-40 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(#ffffff12 1px, transparent 1px), linear-gradient(90deg, #ffffff12 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* Glow */}
-      <div
-        className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none"
-        style={{ background: "radial-gradient(circle, #e8ff4730 0%, transparent 70%)" }}
-      />
+      {/* Interactive grid + mouse-following glow (replaces old static grid and glow) */}
+      <InteractiveGrid />
 
       <motion.div
         animate={{ y: [0, -12, 0] }}
