@@ -7,3 +7,440 @@
         background-color: transparent;
     }
 }
+
+html,
+body,
+#root {
+    min-width: 320px;
+    min-height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.site-header {
+    height: 68px;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+}
+
+.nav-link.is-active {
+    color: #47d9ff;
+}
+
+.hire-link {
+    margin-left: 0.25rem;
+}
+
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: #f0f0f8;
+    border: 1px solid #ffffff12;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.page-shell {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    padding-top: 68px;
+    overflow: hidden;
+}
+
+.page-shell > section {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    padding: 42px clamp(28px, 5vw, 76px) 64px !important;
+}
+
+.page-shell > .home-page {
+    min-height: 0;
+    padding: 0 24px !important;
+}
+
+.page-shell > .home-page > div:nth-child(2) {
+    transform: none !important;
+}
+
+.page-shell > footer {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px 24px;
+    background: linear-gradient(0deg, #0a0a0f 50%, transparent);
+}
+
+.page-shell > footer > div {
+    max-width: 1200px;
+}
+
+.page-about #about > div,
+.page-skills #skills > div,
+.page-contact #contact > div,
+.page-projects #projects > div {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-about #about > div {
+    gap: clamp(32px, 5vw, 76px);
+}
+
+/* About photo: up to 480px wide. The height follows the screen so it fits the one-screen layout.
+   Change 520px / 480px to resize. */
+.about-photo {
+    width: 100%;
+    max-width: 380px;
+    height: clamp(300px, calc(100dvh - 210px), 420px);
+    margin: 0 auto;
+}
+
+.page-about #about > div > div:last-child > p:first-child,
+.page-skills #skills > div > div:first-child p,
+.page-contact #contact > div > div:first-child > p {
+    margin-bottom: 10px;
+}
+
+.page-about #about h2,
+.page-contact #contact h2 {
+    margin-bottom: 14px;
+    font-size: clamp(1.65rem, 3vw, 2.5rem) !important;
+}
+
+.page-about #about > div > div:last-child > p {
+    margin-bottom: 12px;
+}
+
+.page-about #about > div > div:last-child > p:nth-last-child(2) {
+    margin-bottom: 20px;
+}
+
+.page-about #about button {
+    padding: 10px 22px;
+}
+
+.page-skills #skills > div > div:first-child {
+    margin-bottom: clamp(20px, 4vh, 38px);
+}
+
+.page-skills #skills > div > div:last-child {
+    gap: 18px;
+}
+
+.page-skills #skills > div > div:last-child > div {
+    padding: clamp(16px, 2vw, 24px);
+}
+
+.page-skills #skills > div > div:last-child > div > div:first-child {
+    margin-bottom: 16px;
+}
+
+.page-skills #skills .mb-4 {
+    margin-bottom: 12px;
+}
+
+.page-skills #skills .mb-4 > div:first-child {
+    margin-bottom: 5px;
+}
+
+.page-projects #projects {
+    padding: 32px clamp(28px, 5vw, 76px) 60px !important;
+}
+
+.page-projects #projects > div {
+    height: 100%;
+}
+
+.page-projects #projects > div > div:first-child {
+    margin-bottom: 20px !important;
+}
+
+.page-projects #projects > div > div:first-child p:last-child {
+    display: none;
+}
+
+.page-projects #projects > div > div:first-child h2 {
+    margin-bottom: 0 !important;
+    font-size: clamp(1.7rem, 3vw, 2.5rem) !important;
+}
+
+.page-projects #projects > div > div:last-child {
+    height: calc(100% - 110px);
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 14px !important;
+}
+
+.page-projects .project-card {
+    min-height: 0;
+    padding: 16px !important;
+}
+
+.page-projects .project-card > div:nth-child(2) {
+    font-size: 25px !important;
+    margin-bottom: 8px !important;
+}
+
+.page-projects .project-card h3,
+.page-projects .folder-card h3 {
+    font-size: 16px !important;
+    margin-bottom: 7px !important;
+}
+
+.page-projects .project-card p,
+.page-projects .folder-card p {
+    font-size: 11px !important;
+    line-height: 1.45 !important;
+    margin-bottom: 12px !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.page-projects .project-card > div:nth-last-child(2),
+.page-projects .folder-card-content > div:last-child {
+    gap: 5px !important;
+    margin-bottom: 10px !important;
+}
+
+.page-projects .project-card > div:nth-last-child(2) span,
+.page-projects .folder-card-content > div:last-child span {
+    padding: 3px 6px !important;
+    font-size: 9px !important;
+}
+
+.page-projects .folder-card {
+    min-height: 0;
+}
+
+.page-projects .folder-card-content {
+    padding: 20px 16px 12px !important;
+}
+
+.page-projects .folder-card-content > div:nth-child(2) {
+    margin-bottom: 8px !important;
+}
+
+.page-projects .folder-card-content > div:nth-child(2) > div:first-child {
+    font-size: 24px !important;
+}
+
+.page-projects .folder-card-content > div:nth-child(2) > span {
+    padding: 3px 8px !important;
+}
+
+.page-projects .folder-card-content h3 {
+    margin-bottom: 5px !important;
+}
+
+.page-projects .folder-card-content p {
+    margin-bottom: 8px !important;
+}
+
+.page-contact #contact > div {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: clamp(24px, 4vw, 56px);
+    align-items: center;
+}
+
+.page-contact #contact > div > div:first-child > p:nth-of-type(2) {
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+.page-contact .contact-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.page-contact .contact-list > button {
+    min-width: 0;
+    gap: 10px;
+    padding: 11px 12px;
+}
+
+.page-contact .contact-list > button > div > div:last-child {
+    overflow-wrap: anywhere;
+    font-size: 11px;
+}
+
+.page-contact .contact-form {
+    padding: clamp(18px, 2.5vw, 30px);
+}
+
+.page-contact .contact-form h3 {
+    margin-bottom: 16px;
+}
+
+.page-contact .contact-form input,
+.page-contact .contact-form textarea {
+    padding: 10px 12px;
+    font-size: 12px;
+}
+
+.page-contact .contact-form textarea {
+    min-height: 72px;
+}
+
+.page-contact .contact-form button {
+    padding: 12px;
+}
+
+@media (max-width: 900px) {
+    .page-shell {
+        height: auto;
+        min-height: 100dvh;
+        overflow: visible;
+    }
+
+    .page-shell > section {
+        height: auto;
+        min-height: calc(100dvh - 68px);
+        overflow: visible;
+        padding: 40px 28px 72px !important;
+    }
+
+    .page-shell > .home-page {
+        min-height: calc(100dvh - 68px);
+    }
+
+    .page-about #about > div {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    }
+
+    .about-photo {
+        height: 420px;
+    }
+
+    .page-skills #skills > div > div:last-child {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .page-projects #projects > div > div:last-child {
+        height: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-template-rows: auto;
+    }
+
+    .page-projects .folder-card {
+        min-height: 300px;
+    }
+
+    .page-contact #contact > div {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .site-header {
+        height: 60px;
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .site-header > div {
+        height: 60px;
+    }
+
+    .site-header > div > div:first-child > span:last-child {
+        font-size: 14px;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .site-nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 18px 16px;
+        background: #0a0a0fF5;
+        border-bottom: 1px solid #ffffff12;
+    }
+
+    .site-nav.is-open {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .site-nav .nav-link {
+        padding: 12px 4px;
+        text-align: left;
+    }
+
+    .site-nav .hire-link {
+        margin: 8px 0 0;
+    }
+
+    .page-shell {
+        padding-top: 60px;
+    }
+
+    .page-shell > section {
+        min-height: calc(100dvh - 60px);
+        padding: 34px 20px 72px !important;
+    }
+
+    .page-shell > .home-page {
+        min-height: calc(100dvh - 60px);
+        padding-right: 16px !important;
+        padding-left: 16px !important;
+    }
+
+    .page-shell > footer {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .page-shell > footer > div {
+        gap: 8px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .page-about #about > div,
+    .page-contact #contact > div {
+        grid-template-columns: 1fr;
+    }
+
+    .about-photo {
+        max-width: 360px;
+        height: 340px;
+    }
+
+    .page-skills #skills > div > div:last-child {
+        grid-template-columns: 1fr;
+    }
+
+    .page-projects #projects > div > div:last-child {
+        grid-template-columns: 1fr !important;
+    }
+
+    .page-projects .folder-card {
+        min-height: 320px;
+    }
+
+    .page-contact .contact-list {
+        grid-template-columns: 1fr;
+    }
+}

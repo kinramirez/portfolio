@@ -23,7 +23,7 @@ export default function FolderBackPanel({ frontTop, edge }) {
       <div
         style={{
           position: "absolute", top: frontTop - 18, left: 0, right: 0, bottom: 0,
-          background: "linear-gradient(180deg, #262638, #1e1e2c)",
+          background: "linear-gradient(180deg, #3D3D5C  , #495C6E)",
           border: `1px solid ${edge}`, borderRadius: "0 14px 14px 14px",
           transition: "border-color 0.3s",
         }}

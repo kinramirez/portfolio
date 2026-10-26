@@ -14,7 +14,7 @@ export default function Projects() {
   const [openFolder, setOpenFolder] = useState(null);
 
   return (
-    <section id="projects" style={{ background: C.surface, padding: "120px 2rem" }}>
+    <section id="projects">
       <div ref={ref} style={{ maxWidth: 1200, margin: "0 auto" }}>
         <SectionHeader inView={inView} />
 

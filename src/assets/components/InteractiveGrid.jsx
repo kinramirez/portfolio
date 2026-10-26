@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 
 const CELL = 60; // grid cell size in px, matches your original grid
-const ACCENT = "232, 255, 71"; // #e8ff47 as rgb
+const ACCENT = "71, 217, 255"; // #47d9ff as rgb
 
 export default function InteractiveGrid() {
   const ref = useRef(null);
@@ -65,7 +65,7 @@ export default function InteractiveGrid() {
     };
   }, [x, y, sx, sy, reduceMotion]);
 
-  // soft yellow glow that follows the cursor
+  // soft blue-white glow that follows the cursor
   const glow = useMotionTemplate`radial-gradient(520px circle at ${sx}px ${sy}px, rgba(${ACCENT}, 0.13), transparent 70%)`;
 
   // mask that reveals the bright grid only around the cursor

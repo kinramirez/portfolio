@@ -1,22 +1,17 @@
-import { useEffect } from "react";
-import Header from "./sections/Header";
-import About from "./sections/About";
-import Projects from "./assets/components/Projects/index";
-import Skills from "./sections/Skills";
-import Hero from "./sections/Hero";
-import Contact from "./sections/Contact";
-import Footer from "./sections/Footer";
+import { useEffect, useState } from "react";
+import Header from "./pages/Header";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Skills from "./pages/Skills";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Footer from "./pages/Footer";
+import InteractiveGrid from "./assets/components/InteractiveGrid";
 
-// ── Tokens ──────────────────────────────────────────────────────────────────
 const C = {
   bg: "#0a0a0f",
-  surface: "#12121a",
-  card: "#1a1a26",
-  border: "#ffffff12",
-  accent: "#e8ff47",
-  accentDim: "#e8ff4730",
+  accent: "#47d9ff",
   text: "#f0f0f8",
-  muted: "#8888aa",
 };
 
 const injectFonts = () => {
@@ -27,41 +22,47 @@ const injectFonts = () => {
   document.head.appendChild(link);
 };
 
-// ── Utility animations ───────────────────────────────────────────────────────
+const PAGE_COMPONENTS = {
+  Home,
+  About,
+  Skills,
+  Projects,
+  Contact,
+};
 
-const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
-
-// ── APP ──────────────────────────────────────────────────────────────────────
 export default function Portfolio() {
+  const [activePage, setActivePage] = useState("Home");
+  const Page = PAGE_COMPONENTS[activePage];
+
   useEffect(() => {
     injectFonts();
     document.body.style.margin = "0";
     document.body.style.background = C.bg;
   }, []);
 
+  const navigateTo = (page) => {
+    setActivePage(page);
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <div style={{ background: C.bg, color: C.text, overflowX: "hidden" }}>
+    <div className={`app-shell page-${activePage.toLowerCase()}`} style={{ color: C.text }}>
       <style>{`
         * { box-sizing: border-box; }
         ::selection { background: ${C.accent}; color: ${C.bg}; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: ${C.bg}; }
         ::-webkit-scrollbar-thumb { background: ${C.accent}; border-radius: 3px; }
-        @media (max-width: 900px) {
-          .grid-2col { grid-template-columns: 1fr !important; }
-          .grid-3col { grid-template-columns: 1fr 1fr !important; }
-        }
-        @media (max-width: 600px) {
-          .grid-3col { grid-template-columns: 1fr !important; }
-        }
       `}</style>
-      <Header />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+
+      {/* Shared background: one grid for the whole site */}
+      <InteractiveGrid />
+
+      <Header activePage={activePage} onNavigate={navigateTo} />
+      <main className="page-shell relative z-10" key={activePage}>
+        <Page onNavigate={navigateTo} />
+        <Footer />
+      </main>
     </div>
   );
 }

@@ -1,11 +1,10 @@
-// One folder = one project made of several connected systems.
+// One folder = one project made of one or more connected systems.
 // The number of papers on the card follows systems.length.
 export const FOLDERS = [
   {
     title: "Mama Lou's (MML)",
     desc: "A connected restaurant booking platform made of three apps that work together: one for customers, one for restaurants, and one for talents.",
     tags: ["React", "TypeScript", "Tailwind", "TanStack Query"],
-    emoji: "🍴",
     accent: "#ffb547",
     flow: "Customers book → Restaurants manage → Talents get involved",
     systems: [
@@ -43,6 +42,29 @@ export const FOLDERS = [
           "Set up your profile so restaurants can find you.",
           "Check the restaurants and events you are linked to.",
           "Keep your details up to date so bookings stay accurate.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Aircamp",
+    desc: "An Airbnb-style marketplace for campsites: campers search and book campsites, and anyone can apply to become a host and list their own.",
+    tags: ["React", "TypeScript", "Google Maps", "Nominatim"],
+    accent: "#47ff9c",
+    flow: "Campers book campsites ↔ Hosts list them",
+    systems: [
+      {
+        name: "Aircamp",
+        role: "For campers and hosts (UAT test site)",
+        url: "https://uat.aircamp.ph/",
+        summary:
+          "One app for both sides of the marketplace. Campers find and reserve campsites, and the same app lets you apply to become a host and list a campsite of your own. This is the UAT (test) version, so nothing here is real.",
+        steps: [
+          "Open the UAT site and create an account or log in.",
+          "Campers: search for a location and browse the campsites on the map or list.",
+          "Campers: choose a campsite, pick your dates, and make a reservation, then follow its status.",
+          "Hosts: apply to become a host from the same account.",
+          "Hosts: complete the onboarding wizard to list your campsite, then manage the reservations that come in.",
         ],
       },
     ],

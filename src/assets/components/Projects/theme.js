@@ -3,8 +3,8 @@ export const C = {
   surface: "#12121a",
   card: "#1a1a26",
   border: "#ffffff12",
-  accent: "#e8ff47",
-  accentDim: "#e8ff4730",
+  accent: "#47d9ff",
+  accentDim: "#47d9ff30",
   text: "#f0f0f8",
   muted: "#8888aa",
 };
