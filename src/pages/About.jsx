@@ -33,9 +33,23 @@ export default function About() {
 
   // Angle of the two glowing arcs. It goes 0 → 360 and then back (back and forth)
   const angle = useMotionValue(0);
+  // Brightness of the arcs (1 = full). Only changes when "Reduce motion" is on
+  const pulse = useMotionValue(1);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion) {
+      // No movement: the arcs stay in their corners and slowly fade up and down
+      angle.set(0);
+      const controls = animate(pulse, [1, 0.35], {
+        duration: 4, // seconds per fade (one direction)
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "reverse",
+      });
+      return () => controls.stop();
+    }
+
+    pulse.set(1);
     const controls = animate(angle, 360, {
       duration: 7, // seconds per lap (one direction)
       ease: "easeInOut",
@@ -43,13 +57,13 @@ export default function About() {
       repeatType: "reverse",
     });
     return () => controls.stop();
-  }, [angle, reduceMotion]);
+  }, [angle, pulse, reduceMotion]);
 
   // Three background layers, top to bottom:
   //   1. the photo (inside the border)
   //   2. a solid dark fill (so the arcs never show through the photo)
   //   3. the two arcs (visible only in the border area)
-  const backgroundImage = useMotionTemplate`url("${Profile}"), linear-gradient(#0a0a0f, #0a0a0f), conic-gradient(from ${angle}deg, transparent 0deg, rgba(${ACCENT}, 1) 28deg, transparent 56deg, transparent 180deg, rgba(${ACCENT}, 1) 208deg, transparent 236deg, transparent 360deg)`;
+  const backgroundImage = useMotionTemplate`url("${Profile}"), linear-gradient(#0a0a0f, #0a0a0f), conic-gradient(from ${angle}deg, transparent 0deg, rgba(${ACCENT}, ${pulse}) 28deg, transparent 56deg, transparent 180deg, rgba(${ACCENT}, ${pulse}) 208deg, transparent 236deg, transparent 360deg)`;
 
   return (
     <section id="about" className="relative flex items-center justify-center">

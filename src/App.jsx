@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Footer from "./pages/Footer";
 import InteractiveGrid from "./assets/components/InteractiveGrid";
 
+
 const C = {
   bg: "#0a0a0f",
   accent: "#47d9ff",
@@ -30,8 +31,15 @@ const PAGE_COMPONENTS = {
   Contact,
 };
 
+// Reads the page from the URL: "/#about" → "About". Anything unknown (or no hash) → "Home"
+const pageFromHash = () => {
+  const name = window.location.hash.replace(/^#\/?/, "").toLowerCase();
+  return Object.keys(PAGE_COMPONENTS).find((p) => p.toLowerCase() === name) ?? "Home";
+};
+
 export default function Portfolio() {
-  const [activePage, setActivePage] = useState("Home");
+  // Start from whatever the URL says, so a refresh stays on the same page
+  const [activePage, setActivePage] = useState(pageFromHash);
   const Page = PAGE_COMPONENTS[activePage];
 
   useEffect(() => {
@@ -40,8 +48,26 @@ export default function Portfolio() {
     document.body.style.background = C.bg;
   }, []);
 
+  // Back / Forward buttons and manual edits of the address bar
+  useEffect(() => {
+    const syncFromUrl = () => {
+      setActivePage(pageFromHash());
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("popstate", syncFromUrl);
+    window.addEventListener("hashchange", syncFromUrl);
+    return () => {
+      window.removeEventListener("popstate", syncFromUrl);
+      window.removeEventListener("hashchange", syncFromUrl);
+    };
+  }, []);
+
   const navigateTo = (page) => {
+    if (!PAGE_COMPONENTS[page]) return;
     setActivePage(page);
+    // Home keeps a clean URL ("/"), the others get "/#about", "/#skills", ...
+    const hash = page === "Home" ? "" : `#${page.toLowerCase()}`;
+    window.history.pushState(null, "", `${window.location.pathname}${window.location.search}${hash}`);
     window.scrollTo(0, 0);
   };
 
