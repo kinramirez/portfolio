@@ -28,9 +28,6 @@ export default function Header({ activePage, onNavigate }) {
           tabIndex={0}
           className="flex items-center gap-2.5 cursor-pointer"
         >
-          <div className="w-8 h-8 bg-accent rounded-md flex items-center justify-center">
-            <span className="font-['Syne'] font-extrabold text-base text-bg">K</span>
-          </div>
           <span className="font-['Syne'] font-bold text-primary text-lg tracking-tight">
             Kin James Ramirez
           </span>

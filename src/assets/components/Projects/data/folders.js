@@ -48,7 +48,7 @@ export const FOLDERS = [
   },
   {
     title: "Aircamp",
-    desc: "An Airbnb-style marketplace for campsites: campers search and book campsites, and anyone can apply to become a host and list their own.",
+    desc: "A campsite booking marketplace: campers search and reserve campsites, and anyone can apply to become a host and list their own.",
     tags: ["React", "TypeScript", "Google Maps", "Nominatim"],
     accent: "#47ff9c",
     flow: "Campers book campsites ↔ Hosts list them",
